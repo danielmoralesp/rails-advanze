@@ -1,7 +1,7 @@
 //app/javascript/quotes/components/QuoteFooter.jsx
 
 import React from 'react'
-import { Link } from 'react-reouter-dom'
+import { Link } from 'react-router-dom'
 
 const QuoteFooter = props => (
   <div id="footer">
