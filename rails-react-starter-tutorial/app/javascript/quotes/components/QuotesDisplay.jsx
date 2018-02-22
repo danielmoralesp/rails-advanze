@@ -31,7 +31,8 @@ class QuotesDisplay extends React.Component {
       // asignar ID de quote de la query string de la URL
       this.quoteId = Number(this.qsParams.quote)
     } else {
-      this.quoteId = 1
+      this.quoteId = this.props.startingQuoteId
+      // this.quoteId = 1
       // actualizar URL en el navegador para reflejar la quote actual en la query string
       this.props.history.push(`/?quote=${this.quoteId}`)
     }
@@ -48,13 +49,18 @@ class QuotesDisplay extends React.Component {
   }
 
   render() {
-    const nextQuoteId = Number(this.state.quote.id) + 1
+    const quote = this.state.quote
+    const nextQuoteId = quote.next_id
+    const previousQuoteId = quote.previous_id
 
     return (
       <div>
-        <Link to={`/?quote=${nextQuoteId}`}>Next </Link>
-        <p>{this.state.quote.text}</p>
-        <p>{this.state.quote.author}</p>
+        {previousQuoteId && (
+          <Link to={`/?quote=${previousQuoteId}`}>Previous </Link>
+        )}
+        {nextQuoteId && <Link to={`/?quote=${nextQuoteId}`}>Next </Link>}
+        <p>{quote.text}</p>
+        <p>{quote.author}</p>
       </div>
     )
   }
