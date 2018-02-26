@@ -5,10 +5,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import { Alert } from 'react-bootstrap'
 
-const Hello = props => (
-  <div>Hello {props.name}!</div>
-)
+const Hello = props => {
+  return (
+    <div>
+      <div>Hello {props.name}!</div>
+      <Alert bsStyle="warning">
+        <strong>Holy guacamole!</strong> Best check yo self, you're not looking
+        too good.
+      </Alert>;
+    </div>
+  )
+}
 
 Hello.defaultProps = {
   name: 'David'
@@ -21,6 +30,6 @@ Hello.propTypes = {
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <Hello name="React" />,
-    document.body.appendChild(document.createElement('div')),
+    document.body.appendChild(document.createElement('div'))
   )
 })
