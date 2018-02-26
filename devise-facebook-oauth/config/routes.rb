@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     root 'devise/sessions#new'
   end
 
+  resources :authentications, only: [:destroy]
+
 end

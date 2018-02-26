@@ -1,5 +1,15 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
+<h3>Facebook setting</h3>
+
+<% if resource.has_facebook_linked? %>
+  <%= link_to "Unlink facebook", authentication_path(resource), method: :delete %>
+<% else %>
+  <%= link_to "Link facebook", omniauth_authorize_path(:user, :facebook) %>
+<% end %>
+
+<h3>Account settings</h3>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
