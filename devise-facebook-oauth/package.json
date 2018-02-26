@@ -9,6 +9,7 @@
     "react-dom": "^16.2.0"
   },
   "devDependencies": {
+    "webpack-cli": "^2.0.9",
     "webpack-dev-server": "^3.0.0"
   }
 }
