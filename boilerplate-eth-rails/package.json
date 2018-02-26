@@ -1,6 +1,9 @@
 {
   "name": "boilerplate-eth-rails",
   "private": true,
+  "scripts": {
+    "test": "mocha"
+  },
   "dependencies": {
     "@rails/webpacker": "^3.2.2",
     "babel-preset-react": "^6.24.1",
