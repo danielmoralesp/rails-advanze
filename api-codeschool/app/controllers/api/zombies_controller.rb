@@ -24,6 +24,23 @@ module API
       end
     end
 
+    def update
+      zombie = Zombie.find(params[:id])
+
+      if zombie.update(zombie_params)
+        render json: zombie, status: 200
+      else
+        render json: zombie.errors, status: 422
+      end
+    end
+
+    def destroy
+      zombie = Zombien.find(params[:id])
+
+      zombie.destroy
+      head 204
+    end
+
     private
       def zombie_params
         params.require(:zombie).permit(:name)
