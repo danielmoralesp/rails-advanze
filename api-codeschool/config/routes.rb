@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :episodes # http://cs-zombies.com/episodes
+  resources :pages # http://cs-zombies.com/pages
 end
