@@ -3,11 +3,10 @@ module API
     def index
       zombies = Zombie.all
 
-      if weapon = params[:weapon]
-        zombies = zombies.where(weapon: weapon)
+      respond_to do |format|
+        format.json { render json: zombies, status: 200 }
+        format.xml { render xml: zombies, status: 200 }
       end
-
-      render json: zombies, status: 200
     end
 
     def show
