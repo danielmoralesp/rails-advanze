@@ -6,25 +6,4 @@ class FinishedBooksController < ApplicationController
       format.xml { render xml: books, status: 200 }
     end
   end
-
-  def create
-    book = Book.new(book_params)
-
-    if book.save
-      render json: book, status: 201, location: book
-    else
-      render json: book.errors, status: 422
-    end
-  end
-
-  def destroy
-    book = Book.find(params[:id])
-    book.destroy!
-    render nothing: true, status: 204
-  end
-
-  private
-    def book_params
-      params.require(:book).permit(:title, :rating)
-    end
 end
