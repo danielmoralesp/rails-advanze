@@ -43,6 +43,7 @@ class IdeaForm extends Component {
             placeholder="Enter a Title"
             value={this.state.title}
             onChange={this.handleInput}
+            ref={this.props.titleRef}
           />
           <textarea
             className="input"
