@@ -1,5 +1,3 @@
-Idea.delete_all
-
 ideas = Idea.create!(
   [
     {
