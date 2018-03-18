@@ -10,6 +10,23 @@ class IdeaForm extends Component {
     }
   }
 
+  handleBlur = () => {
+    const idea = {
+      title: this.state.title,
+      body: this.state.body
+    }
+
+    axios
+      .put(`http://localhost:3001/api/v1/ideas/${this.props.idea.id}`, {
+        idea: idea
+      })
+      .then(response => {
+        console.log(response)
+        this.props.updateIdea(response.data)
+      })
+      .catch(error => console.log(error))
+  }
+
   handleInput = e => {
     this.setState({ [e.target.name]: e.target.value })
   }
@@ -17,7 +34,7 @@ class IdeaForm extends Component {
   render() {
     return (
       <div className="tile">
-        <form>
+        <form onBlur={this.handleBlur}>
           <input
             className="input"
             type="text"
